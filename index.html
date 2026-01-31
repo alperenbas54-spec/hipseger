@@ -6,63 +6,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      <h2>🗑️ Atık Türünü Seçin</h2>
-
-<button onclick="secim('Plastik')">🥤 Plastik</button>
-<button onclick="secim('Metal')">🔩 Metal</button>
-<button onclick="secim('Cam')">🧴 Cam</button>
-<button onclick="secim('Organik')">🍌 Organik</button>
-
-<div id="mesaj" style="margin-top:20px; font-weight:bold; padding:10px; border:1px solid #ccc; border-radius:5px;">
-  <p>Burada atık türüne göre yönlendirme ve açıklamalar görünecek.</p>
-</div>
-
-<script>
-function secim(tur) {
-    let mesaj = "";
-
-    if(tur === "Plastik") {
-        mesaj = "<strong>🥤 Plastik Atık</strong><br>Bu bölme sadece plastik atıklar için kullanılmalıdır. Plastikler burada ayrıştırılır ve geri dönüşüme gönderilir. Bu sistem çevreyi korumak için tasarlanmıştır.";
-    } else if(tur === "Metal") {
-        mesaj = "<strong>🔩 Metal Atık</strong><br>Metal atıklar buraya atılmalıdır. Sistem metal atıkları algılar ve doğru şekilde geri dönüşüme gönderir.";
-    } else if(tur === "Cam") {
-        mesaj = "<strong>🧴 Cam Atık</strong><br>Cam şişeler ve kırılabilir atıklar buraya atılmalıdır. Güvenli bir şekilde depolanır ve geri dönüşüm sağlanır.";
-    } else if(tur === "Organik") {
-        mesaj = "<strong>🍌 Organik Atık</strong><br>Organik atıklar (meyve, sebze vs.) buraya atılır ve kompost / biyogaz üretimi için ayrıştırılır.";
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
     }
-
-    // Mesaj altına A bölümü açıklamalarını ekleyelim
-    mesaj += "<hr><p>Bu sistem, geri dönüşümü teşvik etmek ve atıkların doğru şekilde ayrıştırılmasını sağlamak amacıyla geliştirilmiştir. QR kodu okutarak sistem hakkında bilgi alabilir ve çevreye katkı sağlayabilirsiniz.</p>";
-
-    document.getElementById("mesaj").innerHTML = mesaj;
-}
-</script>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #ffffff;
+      padding: 20px;
+    }
+    h1 {
+      color: #1f7a4d;
+      text-align: center;
+    }
+    h2 {
+      color: #2c3e50;
+      margin-top: 30px;
+    }
+    p {
+      line-height: 1.6;
+    }
+    ol, ul {
+      margin-left: 20px;
+    }
+    .status {
+      background: #e8f5e9;
+      padding: 10px;
+      border-left: 5px solid #2ecc71;
+      margin: 20px 0;
+      font-weight: bold;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px solid #ddd;
+      text-align: center;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
+</head>
 <body>
- <h2>🗑️ Atık Türünü Seçin</h2>
 
-<button onclick="secim('Plastik')">🥤 Plastik</button>
-<button onclick="secim('Metal')">🔩 Metal</button>
-<button onclick="secim('Cam')">🧴 Cam</button>
-<button onclick="secim('Organik')">🍌 Organik</button>
+  <div class="container">
+    <h1>Akıllı Çöp Kovası Sistemi</h1>
 
-<p id="mesaj" style="margin-top:20px; font-weight:bold;"></p>
+    <div class="status">
+      Sistem aktiftir.
+    </div>
 
-<script>
-function secim(tur) {
-    let mesaj = "";
-    if(tur === "Plastik") {
-        mesaj = "Plastik atık buraya atılmalıdır.";
-    } else if(tur === "Metal") {
-        mesaj = "Metal atık buraya atılmalıdır.";
-    } else if(tur === "Cam") {
-        mesaj = "Cam atık buraya atılmalıdır.";
-    } else if(tur === "Organik") {
-        mesaj = "Organik atık buraya atılmalıdır.";
-    }
-    document.getElementById("mesaj").innerText = mesaj;
-}
-</script>
+    <h2>📌 Sistem Hakkında</h2>
+    <p>
+      Bu akıllı çöp kovası sistemi, geri dönüşümü artırmak, atıkları doğru şekilde
+      ayrıştırmak ve şehir temizliğini daha verimli hâle getirmek amacıyla
+      geliştirilmiştir.
+    </p>
+
+    <h2>🗑️ Nasıl Kullanılır?</h2>
+    <ol>
+      <li>Atığınızı çöp kovasının kapağına yaklaştırın.</li>
+      <li>Sistem atığın türünü otomatik olarak algılar.</li>
+      <li>Metal, plastik, kağıt veya evsel atık için uygun bölme açılır.</li>
+      <li>Yanlış atık tespit edilirse kullanıcı uyarılır.</li>
+      <li>Atık bırakıldıktan sonra kapak otomatik olarak kapanır.</li>
+    </ol>
+
+    <p>
+      Kullanıcıdan herhangi bir teknik bilgi veya işlem yapması beklenmez.
+    </p>
+
+    <h2>⚙️ Sistem Nasıl Çalışır?</h2>
+    <p>
+      Sistem; sensörler, mikrodenetleyici (ESP32 altyapısı) ve mekanik bileşenler
+      kullanılarak çalışır.
+    </p>
+    <ul>
+      <li>Atık türü sensörlerle algılanır</li>
+      <li>Veriler mikrodenetleyici tarafından işlenir</li>
+      <li>Uygun kapak otomatik olarak açılır</li>
+      <li>İnternet bağlantısı varsa veri aktarımı yapılabilir</li>
+    </ul>
+
+    <h2>🌱 Bu Sistem Neden Önemli?</h2>
+    <ul>
+      <li>♻️ Geri dönüşüm oranını artırır</li>
+      <li>🚯 Atık karışıklığını azaltır</li>
+      <li>🧹 Temizlik maliyetlerini düşürür</li>
+      <li>🌍 Çevre bilincini artırır</li>
+      <li>🏙️ Akıllı şehir projelerine katkı sağlar</li>
+    </ul>
+
+    <h2>🏛️ Kullanım Alanları</h2>
+    <p>
+      Bu sistem; belediyeler, parklar, okullar, AVM’ler ve diğer kamu alanlarında
+      kullanılmak üzere tasarlanmıştır.
+    </p>
+
+    <h2>🔍 QR Kodun Amacı</h2>
+    <p>
+      Bu QR kod, kullanıcıları bilgilendirmek ve sistemin nasıl çalıştığını
+      şeffaf bir şekilde anlatmak amacıyla kullanılmaktadır.
+    </p>
+
+    <div class="footer">
+      <strong>Hipseger Akıllı Sistemleri</strong><br>
+      Akıllı şehirler için çevreci çözümler
+    </div>
+  </div>
 
 </body>
 </html>
-

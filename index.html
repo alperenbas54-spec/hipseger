@@ -50,35 +50,30 @@
   </style>
 </head>
 <body>
- <div style="max-width:800px; margin:auto; font-family:Arial; padding:20px;">
-  
-  <h1>♻️ Akıllı Atık Yönlendirme Sistemi</h1>
+ <h2>🗑️ Atık Türünü Seçin</h2>
 
-  <p>
-    Bu QR kod, akıllı çöp kovası sistemine aittir.
-    Lütfen atmak istediğiniz atık türünü aşağıdan seçiniz.
-  </p>
+<button onclick="secim('Plastik')">🥤 Plastik</button>
+<button onclick="secim('Metal')">🔩 Metal</button>
+<button onclick="secim('Cam')">🧴 Cam</button>
+<button onclick="secim('Organik')">🍌 Organik</button>
 
-  <h2>🗑️ Atık Türleri</h2>
+<p id="mesaj" style="margin-top:20px; font-weight:bold;"></p>
 
-  <ul>
-    <li>🥤 Plastik Atık</li>
-    <li>🧴 Cam Atık</li>
-    <li>📦 Kağıt / Karton</li>
-    <li>🔩 Metal Atık</li>
-    <li>🍌 Organik Atık</li>
-  </ul>
-
-  <p>
-    Seçiminize göre sistem sizi yönlendirecek
-    ve doğru bölmenin açılmasını sağlayacaktır.
-  </p>
-
-  <p style="color:gray; font-size:14px;">
-    Bu sistem çevreyi korumak ve geri dönüşümü artırmak için geliştirilmiştir.
-  </p>
-
-</div>
+<script>
+function secim(tur) {
+    let mesaj = "";
+    if(tur === "Plastik") {
+        mesaj = "Plastik atık buraya atılmalıdır.";
+    } else if(tur === "Metal") {
+        mesaj = "Metal atık buraya atılmalıdır.";
+    } else if(tur === "Cam") {
+        mesaj = "Cam atık buraya atılmalıdır.";
+    } else if(tur === "Organik") {
+        mesaj = "Organik atık buraya atılmalıdır.";
+    }
+    document.getElementById("mesaj").innerText = mesaj;
+}
+</script>
 
 </body>
 </html>

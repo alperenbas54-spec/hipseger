@@ -39,6 +39,14 @@
       margin: 20px 0;
       font-weight: bold;
     }
+    #ziyaretci {
+      background: #fff3cd;
+      padding: 10px;
+      border-left: 5px solid #ffc107;
+      margin: 20px 0;
+      font-weight: bold;
+      font-size: 18px;
+    }
     .footer {
       margin-top: 40px;
       padding-top: 15px;
@@ -57,6 +65,9 @@
     <div class="status">
       Sistem aktiftir.
     </div>
+
+    <!-- Ziyaretçi sayacı -->
+    <div id="ziyaretci">Ziyaretçi: 0</div>
 
     <h2>📌 Sistem Hakkında</h2>
     <p>
@@ -116,6 +127,25 @@
       Akıllı şehirler için çevreci çözümler
     </div>
   </div>
+
+  <script>
+    // CountAPI bağlantısı
+    const apiUrl = "https://api.counterapi.dev/v2/emre-bass-team-2705/saylangoz/up";
+    const apiKey = "YOUR_API_KEY"; // Buraya kendi API anahtarını yaz
+
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Authorization": "Bearer " + apiKey,
+        "Content-Type": "application/json"
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('ziyaretci').innerText = "Ziyaretçi: " + data.value;
+    })
+    .catch(error => console.error("Sayaç hatası:", error));
+  </script>
 
 </body>
 </html>

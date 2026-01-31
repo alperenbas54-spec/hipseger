@@ -129,22 +129,17 @@
   </div>
 
   <script>
-    // CountAPI bağlantısı
-    const apiUrl = "https://api.counterapi.dev/v2/emre-bass-team-2705/saylangoz/up";
-    const apiKey = ut_wb9uzq4Bax5cCX4N241SE8D6JzHvcfTyrCcPN0X3; // Buraya kendi API anahtarını yaz
+    <script>
+  // Bu URL API Key istemiyor, direkt her ziyaret +1
+  const apiUrl = "https://api.counterapi.dev/hit/emre-bass-team-2705/saylangoz";
 
-    fetch(apiUrl, {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer " + apiKey,
-        "Content-Type": "application/json"
-      }
-    })
+  fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
       document.getElementById('ziyaretci').innerText = "Ziyaretçi: " + data.value;
     })
     .catch(error => console.error("Sayaç hatası:", error));
+</script>);
   </script>
 
 </body>

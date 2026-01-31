@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
@@ -39,7 +39,7 @@
       margin: 20px 0;
       font-weight: bold;
     }
-    #ziyaretci {
+    #toplamSayac {
       background: #fff3cd;
       padding: 10px;
       border-left: 5px solid #ffc107;
@@ -66,8 +66,8 @@
       Sistem aktiftir.
     </div>
 
-    <!-- Ziyaretçi sayacı -->
-    <div id="ziyaretci">Ziyaretçi: 0</div>
+    <!-- Toplam ziyaretçi sayacı -->
+    <div id="toplamSayac">Toplam ziyaretçi: 0</div>
 
     <h2>📌 Sistem Hakkında</h2>
     <p>
@@ -85,41 +85,10 @@
       <li>Atık bırakıldıktan sonra kapak otomatik olarak kapanır.</li>
     </ol>
 
-    <p>
-      Kullanıcıdan herhangi bir teknik bilgi veya işlem yapması beklenmez.
-    </p>
-
     <h2>⚙️ Sistem Nasıl Çalışır?</h2>
     <p>
       Sistem; sensörler, mikrodenetleyici (ESP32 altyapısı) ve mekanik bileşenler
       kullanılarak çalışır.
-    </p>
-    <ul>
-      <li>Atık türü sensörlerle algılanır</li>
-      <li>Veriler mikrodenetleyici tarafından işlenir</li>
-      <li>Uygun kapak otomatik olarak açılır</li>
-      <li>İnternet bağlantısı varsa veri aktarımı yapılabilir</li>
-    </ul>
-
-    <h2>🌱 Bu Sistem Neden Önemli?</h2>
-    <ul>
-      <li>♻️ Geri dönüşüm oranını artırır</li>
-      <li>🚯 Atık karışıklığını azaltır</li>
-      <li>🧹 Temizlik maliyetlerini düşürür</li>
-      <li>🌍 Çevre bilincini artırır</li>
-      <li>🏙️ Akıllı şehir projelerine katkı sağlar</li>
-    </ul>
-
-    <h2>🏛️ Kullanım Alanları</h2>
-    <p>
-      Bu sistem; belediyeler, parklar, okullar, AVM’ler ve diğer kamu alanlarında
-      kullanılmak üzere tasarlanmıştır.
-    </p>
-
-    <h2>🔍 QR Kodun Amacı</h2>
-    <p>
-      Bu QR kod, kullanıcıları bilgilendirmek ve sistemin nasıl çalıştığını
-      şeffaf bir şekilde anlatmak amacıyla kullanılmaktadır.
     </p>
 
     <div class="footer">
@@ -128,18 +97,17 @@
     </div>
   </div>
 
+  <!-- Sayaç kodu -->
   <script>
-    <script>
-  // Bu URL API Key istemiyor, direkt her ziyaret +1
-  const apiUrl = "https://api.counterapi.dev/hit/emre-bass-team-2705/saylangoz";
+    // CountAPI hit URL'si, herkes sayfayı açtığında +1 artacak
+    const apiUrl = "https://api.counterapi.dev/hit/emre-bass-team-2705/saylangoz";
 
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('ziyaretci').innerText = "Ziyaretçi: " + data.value;
-    })
-    .catch(error => console.error("Sayaç hatası:", error));
-</script>);
+    fetch(apiUrl)
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('toplamSayac').innerText = "Toplam ziyaretçi: " + data.value;
+      })
+      .catch(error => console.error("Sayaç hatası:", error));
   </script>
 
 </body>
